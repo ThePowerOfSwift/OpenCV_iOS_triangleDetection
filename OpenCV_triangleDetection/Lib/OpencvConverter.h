@@ -7,12 +7,14 @@
 #import <UIKit/UIImage.h>
 #import <opencv2/opencv.hpp>
 
-@interface UIImage_openCV : NSObject {
+@interface OpencvConverter : NSObject {
 
 }
 
-+ (cv::Mat)cvMatFromUIImage:(UIImage *)image;
-+ (cv::Mat)cvMatGrayFromUIImage:(UIImage *)image;
-+ (UIImage *)UIImageFromCVMat:(cv::Mat)cvMat;
++ (cv::Mat)UIImage2cvMat:(UIImage *)image;
+
++ (cv::Mat)UIImage2cvMatGray:(UIImage *)image;
+
++ (UIImage *)cvMat2UIImage:(cv::Mat)cvMat;
 
 @end

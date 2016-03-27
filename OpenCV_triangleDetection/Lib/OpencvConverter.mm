@@ -3,12 +3,12 @@
 // Copyright (c) 2016 ___FULLUSERNAME___. All rights reserved.
 //
 
-#import "UIImage_openCV.h"
+#import "OpencvConverter.h"
 
 
-@implementation UIImage_openCV {}
+@implementation OpencvConverter {}
 
-+ (cv::Mat)cvMatFromUIImage:(UIImage *)image
++ (cv::Mat)UIImage2cvMat:(UIImage *)image
 {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
@@ -31,7 +31,7 @@
     return cvMat;
 }
 
-+ (cv::Mat)cvMatGrayFromUIImage:(UIImage *)image
++ (cv::Mat)UIImage2cvMatGray:(UIImage *)image
 {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
@@ -54,7 +54,7 @@
     return cvMat;
 }
 
-+ (UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
++ (UIImage *)cvMat2UIImage:(cv::Mat)cvMat
 {
     NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
     CGColorSpaceRef colorSpace;
