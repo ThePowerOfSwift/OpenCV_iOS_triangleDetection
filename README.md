@@ -4,6 +4,8 @@
 
 # How do I import openCV iOS ?
 
+![import_frameworks](screenshots/import_frameworks.png)
+
 ## Link Libraries
 Go to Project > Build Phases > Link Binary With Libraries
 * AssetsLibrary.framework
