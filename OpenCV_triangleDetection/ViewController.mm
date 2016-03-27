@@ -19,8 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // imageRGBA = [UIImage imageNamed:@"shapes1.png"];
-    // imageRGBA = [UIImage imageNamed:@"shapes2.png"];
     imageRGBA = [UIImage imageNamed:@"triangle_hands1.jpg"];
     // imageRGBA = [UIImage imageNamed:@"triangle_hands2.jpg"];
     
@@ -52,10 +50,8 @@
         {
             //obtain a sequence of points of contour, pointed by the variable 'contour'
             result = cvApproxPoly(contours, sizeof(CvContour), storage, CV_POLY_APPROX_DP, cvContourPerimeter(contours)*0.15, 0);
-
-            NSLog(@"%i contours \n", result->total);
-
-            if(result->total >= 3)
+            
+            if(result->total == 3)
             {
                 //iterating through each point
                 CvPoint *pt[result->total];
