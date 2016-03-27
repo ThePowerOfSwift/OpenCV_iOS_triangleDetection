@@ -1,19 +1,26 @@
 # OpenCV_iOS_triangleDetection
 
+# What is my main goal ?
 
+I have to detect when a triangle is drawn by hands.
 
-# How do I import openCV iOS ?
+I must be careful with the environment so that I won't be disturbed by the light or other things in the background.
 
-![import_frameworks](screenshots/import_frameworks.png)
+![test01](screenshots/test01.png)
+![test02](screenshots/test02.png)
 
-## Link Libraries
+## How do I import openCV iOS ?
+
+### Link Libraries
 Go to Project > Build Phases > Link Binary With Libraries
 * AssetsLibrary.framework
 * CoreGraphics framework
 * Foundation.framework
 * UIKit.framework
 
-## Import openCV 2
+![import_frameworks](screenshots/import_frameworks.png)
+
+### Import openCV 2
 Drag and drop opencv2.framework in the directory frameworks :
 * check Copy the items
 * check create groups 
