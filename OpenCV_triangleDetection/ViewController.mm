@@ -51,32 +51,19 @@
         while(contours)
         {
             //obtain a sequence of points of contour, pointed by the variable 'contour'
-            result = cvApproxPoly(contours, sizeof(CvContour), storage, CV_POLY_APPROX_DP, cvContourPerimeter(contours)*0.02, 0);
+            result = cvApproxPoly(contours, sizeof(CvContour), storage, CV_POLY_APPROX_DP, cvContourPerimeter(contours)*0.15, 0);
 
             NSLog(@"%i contours \n", result->total);
 
-            //if there are 3 vertices in the contour(It should be a triangle)
-            if(result->total==3 )
-            {
-                //iterating through each point
-                CvPoint *pt[3];
-                for(int i=0;i<3;i++){
-                    pt[i] = (CvPoint*)cvGetSeqElem(result, i);
-                }
-
-                //drawing lines around the triangle
-                cvLine(img, *pt[0], *pt[1], cvScalar(0,0,255),2);
-                cvLine(img, *pt[1], *pt[2], cvScalar(0,0,255),2);
-                cvLine(img, *pt[2], *pt[0], cvScalar(0,0,255),2);
-
-            }
-            else if(result->total > 3)
+            if(result->total >= 3)
             {
                 //iterating through each point
                 CvPoint *pt[result->total];
-                for(int i=0;i<result->total;i++){
+                for(int i=0;i<result->total;i++)
+                {
                     pt[i] = (CvPoint*)cvGetSeqElem(result, i);
 
+                    // Draw
                     if(i > 0)
                     {
                         cvLine(img, *pt[(i - 1)], *pt[i], cvScalar(255,0,0),2);
